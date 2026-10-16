@@ -12,8 +12,7 @@
 
       <label
         for="matricula"
-        class="block mb-2 text-sm font-medium text-gray-900"
-      >
+        class="block mb-2 text-sm font-medium text-gray-900">
         Matricula
       </label>
 
@@ -34,8 +33,7 @@
 
       <label
         for="name"
-        class="block mb-2 text-sm font-medium text-gray-900"
-      >
+        class="block mb-2 text-sm font-medium text-gray-900">
         Nombre
       </label>
 
@@ -56,8 +54,7 @@
 
       <label
         for="correo"
-        class="block mb-2 text-sm font-medium text-gray-900"
-      >
+        class="block mb-2 text-sm font-medium text-gray-900">
         Correo
       </label>
 
@@ -78,8 +75,7 @@
 
       <label
         for="materia"
-        class="block mb-2 text-sm font-medium text-gray-900"
-      >
+        class="block mb-2 text-sm font-medium text-gray-900">
         Materia
       </label>
 
@@ -96,44 +92,142 @@
     </div>
 
     <!-- Registrar -->
-    <div class="flex justify-end mt-5">
+    <div class="flex justify-end mt-5 gap-3">
 
       <button
         type="button"
-        (click)="muestraAlumno()"
+        (click)="AgregarAlumno()"
         class="text-white bg-blue-700 hover:bg-blue-800
                focus:ring-4 focus:outline-none focus:ring-blue-300
                font-medium rounded-lg text-sm px-5 py-2.5
-               disabled:opacity-50 disabled:cursor-not-allowed"
-      >
+               disabled:opacity-50 disabled:cursor-not-allowed">
         Registrar
       </button>
 
       <!-- Cargar -->
       <button
         type="button"
+        (click)="MostrarAlumnos()"
         class="text-white bg-blue-700 hover:bg-blue-800
                focus:ring-4 focus:outline-none focus:ring-blue-300
                font-medium rounded-lg text-sm px-5 py-2.5
-               disabled:opacity-50 disabled:cursor-not-allowed"
-      >
+               disabled:opacity-50 disabled:cursor-not-allowed">
         Cargar
       </button>
 
     </div>
   </form>
 
-  <div class="mb-5">
-    <div>
-      <h3 class="text-2xl font-bold text-gray-900 mb-6">
-        Lista de Alumnos
-      </h3>
-    </div>
 
-    <h3>Matricula: {{nuevoAlumno.matricula}}</h3>
-    <h3>Nombre: {{nuevoAlumno.nombre}}</h3>
-    <h3>Correo: {{nuevoAlumno.correo}}</h3>
-    <h3>Materia: {{nuevoAlumno.materia}}</h3>
+  <!-- Tabla -->
+<div class="max-w-6xl mx-auto mt-8">
+
+  <h2 class="mb-4 text-2xl font-bold text-gray-900">
+    Lista de alumnos
+  </h2>
+  <div
+    class="relative overflow-x-auto shadow-md sm:rounded-lg"
+
+  >
+
+
+    <table class="w-full text-sm text-left text-gray-500">
+
+      <!-- Encabezado -->
+      <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+
+        <tr>
+          <th scope="col" class="px-6 py-3">
+            Matrícula
+          </th>
+
+          <th scope="col" class="px-6 py-3">
+            Nombre
+          </th>
+
+          <th scope="col" class="px-6 py-3">
+            Correo
+          </th>
+
+          <th scope="col" class="px-6 py-3">
+            Materia
+          </th>
+
+          <th scope="col" class="px-6 py-3">
+            Acciones
+          </th>
+        </tr>
+
+      </thead>
+
+      <!-- Datos -->
+      <tbody>
+
+        <tr *ngFor="let alumno1 of alumnos let i = index"
+          class="bg-white border-b border-gray-200 hover:bg-gray-50"
+        >
+
+          <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+            {{ alumno1.matricula }}
+          </td>
+
+          <td class="px-6 py-4">
+            {{ alumno1.nombre }}
+          </td>
+
+          <td class="px-6 py-4">
+            {{ alumno1.correo }}
+          </td>
+
+          <td class="px-6 py-4">
+            {{ alumno1.materia }}
+          </td>
+
+          <td class="px-6 py-4">
+
+            <div class="flex gap-2">
+
+              <!-- Botón Editar -->
+              <button
+                type="button"
+                class="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300"
+                (click)="editarAlumno(i)"
+              >
+                Editar
+              </button>
+
+              <!-- Botón Eliminar -->
+              <button
+                type="button"
+                class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300"
+                (click)="eliminarAlumno(i)"
+              >
+                Eliminar
+              </button>
+
+            </div>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <!-- Mensaje cuando no existen alumnos -->
+   <div *ngIf="alumnos.length === 0"
+    class="p-4 mt-4 text-sm text-gray-800 rounded-lg bg-gray-100"
+    role="alert"
+  >
+    <span class="font-medium">Información:</span>
+    No hay alumnos registrados.
   </div>
 
 </div>
+
+</div>
+
+

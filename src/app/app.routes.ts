@@ -26,30 +26,34 @@ export const routes: Routes = [
       }
     ]
   },
-  {
-    path: 'escuela',
-    children:[
-      {
-        path: 'lista-escuela',
-        loadComponent:()=>
-          import('./escuela/lista-escuela/lista-escuela').then(
-            (c)=>c.ListaEscuela
-          )
-      }
-    ]
-  },
-   {
-    path: 'escuela',
-    children:[
-      {
-        path: 'cinepolis',
-        loadComponent:()=>
-          import('./escuela/cinepolis/cinepolis').then(
-            (c)=>c.Cinepolis
-          )
-      }
-    ]
-  },
+
+{
+  path: 'escuela',
+  children:[
+    {
+      path: 'lista-escuela',
+      loadComponent:()=>
+        import('./escuela/lista-escuela/lista-escuela').then(
+          (c)=>c.ListaEscuela
+        )
+    },
+    {
+      path: 'cinepolis',
+      loadComponent:()=>
+        import('./escuela/cinepolis/cinepolis').then(
+          (c)=>c.Cinepolis
+        )
+    },
+    {
+      path: 'ventas',
+      loadComponent:()=>
+        import('./escuela/ventas/ventas-cinepolis').then(
+          (c)=>c.Ventas
+        )
+    }
+  ]
+},
+
 
   { path: '', redirectTo: 'admin', pathMatch: 'full' },
   { path: '**', redirectTo: 'admin' },
