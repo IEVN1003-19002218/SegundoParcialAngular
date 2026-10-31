@@ -1,0 +1,112 @@
+
+<div class="max-w-2xl mx-auto mt-8 p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+
+  <h1 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+    Agregar alumno
+  </h1>
+
+  <form (ngSubmit)="guardarAlumno()">
+
+    <!-- MATRÍCULA -->
+    <div class="mb-4">
+      <label for="matricula" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+        Matrícula
+      </label>
+      <input
+        id="matricula"
+        type="number"
+        [(ngModel)]="alumno.matricula"
+        name="matricula"
+        required
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        placeholder="Ingrese la matrícula"
+      >
+    </div>
+
+    <!-- NOMBRE -->
+    <div class="mb-4">
+      <label for="nombre" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+        Nombre
+      </label>
+      <input
+        id="nombre"
+        type="text"
+        [(ngModel)]="alumno.nombre"
+        name="nombre"
+        required
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        placeholder="Ingrese el nombre"
+      >
+    </div>
+
+    <!-- APELLIDO PATERNO -->
+    <div class="mb-4">
+      <label for="apaterno" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+        Apellido paterno
+      </label>
+      <input
+        id="apaterno"
+        type="text"
+        [(ngModel)]="alumno.apaterno"
+        name="apaterno"
+        required
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        placeholder="Ingrese el apellido paterno"
+      >
+    </div>
+
+    <!-- APELLIDO MATERNO -->
+    <div class="mb-4">
+      <label for="amaterno" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+        Apellido materno
+      </label>
+      <input
+        id="amaterno"
+        type="text"
+        [(ngModel)]="alumno.amaterno"
+        name="amaterno"
+        required
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        placeholder="Ingrese el apellido materno"
+      >
+    </div>
+
+    <!-- CORREO -->
+    <div class="mb-6">
+      <label for="correo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+        Correo electrónico
+      </label>
+      <input
+        id="correo"
+        type="email"
+        [(ngModel)]="alumno.correo"
+        name="correo"
+        required
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        placeholder="ejemplo@correo.com"
+      >
+    </div>
+
+    <!-- MENSAJE DE ERROR -->
+    <p *ngIf="mensaje" class="mb-4 text-sm text-red-500">
+      {{ mensaje }}
+    </p>
+
+    <!-- BOTONES -->
+    <div class="flex gap-3">
+      <button
+        type="submit"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
+        Guardar alumno
+      </button>
+
+      <button
+        type="button"
+        (click)="cancelar()"
+        class="text-white bg-gray-600 hover:bg-gray-700 font-medium rounded-lg text-sm px-5 py-2.5">
+        Cancelar
+      </button>
+    </div>
+
+  </form>
+</div>

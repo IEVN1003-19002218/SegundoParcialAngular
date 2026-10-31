@@ -1,0 +1,14 @@
+
+/* Fondo general de la aplicación */
+html,
+body {
+  background-color: #111827 !important;
+  min-height: 100%;
+  margin: 0;
+}
+
+app-root {
+  display: block;
+  min-height: 100vh;
+  background-color: #111827;
+}

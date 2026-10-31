@@ -1,0 +1,53 @@
+<div class="max-w-2xl mx-auto mt-8 p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+
+  <h1 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+    Editar maestro
+  </h1>
+
+  <form (ngSubmit)="guardarCambios()">
+
+    <div class="mb-4">
+      <label class="block mb-2 text-sm font-medium dark:text-white">ID Maestro</label>
+      <input type="number" [(ngModel)]="maestro.idmaestro" name="idmaestro" disabled
+             class="bg-gray-200 border border-gray-300 text-gray-900 rounded-lg w-full p-2.5">
+    </div>
+
+    <div class="mb-4">
+      <label class="block mb-2 text-sm font-medium dark:text-white">Nombre</label>
+      <input type="text" [(ngModel)]="maestro.nombre" name="nombre" required
+             class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg w-full p-2.5">
+    </div>
+
+    <div class="mb-4">
+      <label class="block mb-2 text-sm font-medium dark:text-white">Apellido paterno</label>
+      <input type="text" [(ngModel)]="maestro.apaterno" name="apaterno" required
+             class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg w-full p-2.5">
+    </div>
+
+    <div class="mb-4">
+      <label class="block mb-2 text-sm font-medium dark:text-white">Apellido materno</label>
+      <input type="text" [(ngModel)]="maestro.amaterno" name="amaterno"
+             class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg w-full p-2.5">
+    </div>
+
+    <div class="mb-6">
+      <label class="block mb-2 text-sm font-medium dark:text-white">Correo</label>
+      <input type="email" [(ngModel)]="maestro.correo" name="correo" required
+             class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg w-full p-2.5">
+    </div>
+
+    <p *ngIf="mensaje" class="mb-4 text-red-500">{{ mensaje }}</p>
+
+    <div class="flex gap-3">
+      <button type="submit"
+              class="text-white bg-green-600 hover:bg-green-700 rounded-lg px-5 py-2.5">
+        Guardar cambios
+      </button>
+
+      <button type="button" (click)="cancelar()"
+              class="text-white bg-gray-600 hover:bg-gray-700 rounded-lg px-5 py-2.5">
+        Cancelar
+      </button>
+    </div>
+  </form>
+</div>
